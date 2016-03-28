@@ -1,10 +1,7 @@
-Проект "Арканоид с нелинейным ландшафтом"
+РџСЂРѕРµРєС‚ "РђСЂРєР°РЅРѕРёРґ СЃ РЅРµР»РёРЅРµР№РЅС‹Рј Р»Р°РЅРґС€Р°С„С‚РѕРј"
 
-Предпологается что это будет однопользовательское оконное приложение на Python которое с хорошими шансами 
-не запустится ни на чем кроме моего компьютера, без внятного интерфеса, и мне нужно чтобы кто-нибудь рассказал мне, 
-что-такое нелинейный ландшафт.
+РџСЂРµРґРїРѕР»РѕРіР°РµС‚СЃСЏ С‡С‚Рѕ СЌС‚Рѕ Р±СѓРґРµС‚ РѕРґРЅРѕРїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРѕРµ РѕРєРѕРЅРЅРѕРµ РїСЂРёР»РѕР¶РµРЅРёРµ РЅР° Python РєРѕС‚РѕСЂРѕРµ СЃ С…РѕСЂРѕС€РёРјРё С€Р°РЅСЃР°РјРё РЅРµ Р·Р°РїСѓСЃС‚РёС‚СЃСЏ РЅРё РЅР° С‡РµРј РєСЂРѕРјРµ РјРѕРµРіРѕ РєРѕРјРїСЊСЋС‚РµСЂР°, Р±РµР· РІРЅСЏС‚РЅРѕРіРѕ РёРЅС‚РµСЂС„РµСЃР°, Рё РјРЅРµ РЅСѓР¶РЅРѕ С‡С‚РѕР±С‹ РєС‚Рѕ-РЅРёР±СѓРґСЊ СЂР°СЃСЃРєР°Р·Р°Р» РјРЅРµ, С‡С‚Рѕ-С‚Р°РєРѕРµ РЅРµР»РёРЅРµР№РЅС‹Р№ Р»Р°РЅРґС€Р°С„С‚.
 
 Project "Arkanoid with no linear landcsape"
 
-It's supposed to be one user only application without any chances to run on something another than my PC, 
-without any good interface, and also I need to what exatly meens "no linear landscape".
+It's supposed to be one user only application without any chances to run on something another than my PC, without any good interface, and also I need to what exactly meens "no linear landscape".
