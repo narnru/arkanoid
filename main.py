@@ -47,22 +47,22 @@ while True:
     r.x[0] += v.x[0] * delta
     r.x[1] += v.x[1] * delta
 
-    if r.x[0] < 200:
+    if r.x[0] <= 20:
         if v.x[0] < 0:
             v.x[0] = -v.x[0]
             r.x[0] = 20
-    if r.x[1] < 20:
+    if r.x[1] <= 20:
         if v.x[1] < 0:
             v.x[1] = -v.x[1]
-            r.x[1] = -20
-    if r.x[0] > 600:
+            r.x[1] = 20
+    if r.x[0] >= 580:
         if v.x[0] > 0:
             v.x[0] = -v.x[0]
-            r.x[0] = 600
-    if r.x[1] > 600:
+            r.x[0] = 580
+    if r.x[1] >= 580:
         if v.x[1] > 0:
             v.x[1] = -v.x[1]
-            r.x[1] = 600
+            r.x[1] = 580
 
 
     screen.fill((0, 0, 0))
