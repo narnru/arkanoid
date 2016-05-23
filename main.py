@@ -127,7 +127,6 @@ while True:
         ab = (pos.x[0]**2 + pos.x[1]**2)**(-0.5)
         pos *= ab
     posn = vector([pos.x[1], -pos.x[0]])
-    print(ball.v.scalar(posn))
 
     ball.r +=  ball.v * delta
 
