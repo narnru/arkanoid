@@ -1,1 +1,1 @@
-print(max(1,2))
+print(60/25)

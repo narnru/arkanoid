@@ -5,6 +5,7 @@ import math
 
 pygame.init()
 
+
 class vector():
 
     def __init__(self, x = [0]):
@@ -30,8 +31,15 @@ class vector():
     def scalar(self, b):
         c = 0
         for i in range(0,len(self.x)):
-            c = c + self.x[i] * b.x[i]
+            c += self.x[i] * b.x[i]
         return c
+    def abs(self):
+        a = 0
+        for i in self.x:
+            a += i**2
+        a **= 0.5
+        return a
+
 
 class Ball:
     def __init__(self, r, v, rad, color = (255/4, 255/2, 255/3)):
@@ -79,9 +87,13 @@ player = [vector([250,595]), vector([0,0])]
 prev_t = pygame.time.get_ticks()
 ar = pygame.PixelArray(screen)
 
-blocks = []
+some = [600]
+for i in range(50,600,50):
+    some.append(random.random()*30+570)
+some.append(600)
 
-for i in range(25, 550, 5):
+blocks = []
+for i in range(25, 550, 50):
     y = random.random()*200 + 20
     blocks.append(Block(i,y, i+50, y+ 20))
 
@@ -105,12 +117,17 @@ while True:
     if player[0].x[0] >= 575:
         player[1].x[0] = -math.fabs(player[1].x[0]/2)
 
-
     player[0].x[0] += delta * player[1].x[0]
+    t = int(player[0].x[0])/50
 
-
-
-
+    pos = vector([t*50 + 50, some[t+1]]) - vector([t*50, some[t]])
+    player[0].x[1] = some[t] + pos.x[1]*(player[0].x[0] - t*50)/50
+    pos = vector([player[0].x[0] - t*50, player[0].x[1]-some[t]])
+    if (pos.x[0] != 0) and (pos.x[1] != 0):
+        ab = (pos.x[0]**2 + pos.x[1]**2)**(-0.5)
+        pos *= ab
+    posn = vector([pos.x[1], -pos.x[0]])
+    print(ball.v.scalar(posn))
 
     ball.r +=  ball.v * delta
 
@@ -126,11 +143,10 @@ while True:
         if ball.v.x[0] > 0:
             ball.v.x[0] = -ball.v.x[0]
             ball.r.x[0] = 595
-    if ball.r.x[1] >= 595:
-        if (ball.v.x[1] > 0) and (math.fabs(ball.r.x[0] - player[0].x[0]) < 25) :
-            ball.v.x[1] = -ball.v.x[1]
-            ball.r.x[1] = 590
 
+    if (ball.v.x[1] > 0) and (math.fabs(ball.r.x[0] - player[0].x[0]) < 25) :
+        if math.fabs(ball.r.x[1] - (ball.r.x[0] - player[0].x[0])*pos.x[1] - player[0].x[1]) < 5:
+            ball.v = pos * ball.v.scalar(pos) - posn * ball.v.scalar(posn)
 
 
     screen.fill((0, 0, 0))
@@ -143,7 +159,14 @@ while True:
     for i in blocks:
         i.render(screen)
 
+    for i in range(0, 600, 50):
+        pygame.draw.line(screen, (255,255,255), (i, some[i/50]), (i+50, some[i/50 + 1]), 3)
 
-    pygame.draw.line(screen, (255,255,255), (player[0].x[0] - 25, player[0].x[1]), (player[0].x[0] + 25, player[0].x[1]), 5)
+    pygame.draw.line(screen, (255,255,255), (player[0].x[0] - 25, player[0].x[1] - pos.x[1]*25), (player[0].x[0] + 25, player[0].x[1] + pos.x[1]*25), 5)
     ball.render(screen)
     pygame.display.flip()
+
+    if ball.r.x[1] > 600:
+        sys.exit()
+    if blocks == []:
+        sys.exit()
